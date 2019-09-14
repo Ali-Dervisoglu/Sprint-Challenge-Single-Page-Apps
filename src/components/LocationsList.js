@@ -21,7 +21,7 @@ export default function LocationsList() {
         }
         getLocations();
     }, []);
-
+    
     return (
         <section className="location-list grid-view">
             {locations.map(location => (
