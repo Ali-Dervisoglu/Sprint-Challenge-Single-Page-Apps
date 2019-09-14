@@ -1,7 +1,6 @@
 import React from "react";
 import { Tab, Menu, Icon } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
-import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 // TODO: Add missing menu/tabs/nav below
@@ -12,29 +11,25 @@ import { Link } from 'react-router-dom';
 // https://react.semantic-ui.com/elements/button/
 // https://react.semantic-ui.com/collections/breadcrumb/
 
-const TabNav = () => {
-    return (
-        <div>
-            <Nav className="App">
-            <NavItem>
-                <Link to="/" className="Nav-link">Home</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="/characters" className="Nav-link">Characters</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="/locations" className="Nav-link">Locations</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="/episodes" className="Nav-link">Episodes</Link>
-            </NavItem>
-            </Nav>
-        </div>
-    )
-}
+const Nav = props => (
+    <NavLink exact {...props} activeClassName="active"
+    />
+);
 
-// export default function TabNav() {
+const createLabel = (iconName, labelText) => <span><Icon name={iconName} />{labelText}</span>
 
-// };
+const welcomeLabel = createLabel("home", "Home Page")
+const characterLabel = createLabel("users", "Characters")
+const locationLabel = createLabel('map', "Locations")
+const episodeLabel = createLabel('video camera', "Episodes")
+
+const panes = [
+  { menuItem: <Menu.Item key='home' as={Nav} to={'/'} content={welcomeLabel} /> },
+  { menuItem: <Menu.Item key='characters' as={Nav} to={'/characters'} content={characterLabel} /> },
+  { menuItem: <Menu.Item key='locations' as={Nav} to={'/locations'} content={locationLabel} /> },
+  { menuItem: <Menu.Item key='episodes' as={Nav} to={'/episodes'} content={episodeLabel} /> },
+]
+
+const TabNav = () => <Tab panes={panes} renderActiveOnly={false} />
 
 export default TabNav;
