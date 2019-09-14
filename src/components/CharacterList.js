@@ -21,7 +21,7 @@ export default function CharacterList() {
     }
     getCharacters();
   }, []);
-  console.log (characters);
+ 
   return (
     <section className="character-list grid-view">
       {/* <h2>TODO: `array.map()` over your state here!</h2> */}

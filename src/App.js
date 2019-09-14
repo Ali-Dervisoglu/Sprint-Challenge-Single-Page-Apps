@@ -2,6 +2,8 @@ import React from "react";
 import TabNav from "./components/TabNav.js";
 import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList.js";
+import LocationsList from "./components/LocationsList.js";
+import EpisodesList from "./components/EpisodesList.js";
 import { Route } from 'react-router-dom';
 
 export default function App() {
@@ -9,7 +11,9 @@ export default function App() {
     <main>
       <Header />
       <TabNav />
-      <Route path="/characters" component = {CharacterList} />;
+      <Route path="/characters" component = {CharacterList} />
+      <Route path="/locations" component = {LocationsList} />
+      <Route path="/episodes" component = {EpisodesList} />
     </main>
   );
 }
